@@ -14,6 +14,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.facebook.react.modules.i18nmanager.I18nUtil; //<== AmerllicA config
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
       // Packages that cannot be autolinked yet can be added manually here, for
       // example:
       // packages.add(new MyReactNativePackage());
+      packages.add(new RNDateTimePickerPackage());
+
       packages.add(new RNFirebaseAnalyticsPackage()); // <-- Add this line
       packages.add(new RNFirebaseCrashlyticsPackage()); // <-- Add this line
       return packages;

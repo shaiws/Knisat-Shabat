@@ -13,10 +13,10 @@ export default class TableOfShabat extends React.Component {
                         this.props.shabat.parasha}</Text>
                 </View>
                 <View style={{ flex: 1, alignSelf: 'stretch' }}>
-                    <Text style={styles.date}>{(this.props.date.getDate() < 10 ? "0" + this.props.date.getDate() : this.props.date.getDate()) + "/" + (this.props.date.getMonth() + 1 < 10 ? "0" + (this.props.date.getMonth() + 1) : this.props.date.getMonth() + 1) + "/" + this.props.date.getFullYear()}</Text>
+                    <Text style={styles.date}>{this.props.shabat.date}</Text>
                 </View>
                 <View style={{ flex: 1, alignSelf: 'stretch' }}>
-                    <Text style={styles.HebDate}>{this.props.shabat.heb_day} {this.props.shabat.heb_month} {this.props.shabat.heb_year}</Text>
+                    <Text style={styles.HebDate}>{this.props.shabat.hebDate}</Text>
                 </View>
                 <View style={styles.rowView}>
                     <View style={styles.columnView}>
@@ -34,25 +34,25 @@ export default class TableOfShabat extends React.Component {
                     <View style={styles.columnView}>
                         <Text style={styles.header}>כניסה</Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Jerusalem_in.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Jerusalem_in} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Tel_Aviv_in.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Tel_Aviv_in} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Hayfa_in.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Hayfa_in} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Beer_Sheva_in.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Beer_Sheva_in} </Text>
                     </View>
                     <View style={{ width: 1, height: '100%', backgroundColor: 'lightblue' }} />
                     <View style={styles.columnView}>
                         <Text style={styles.header}>יציאה</Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Jerusalem_out.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Jerusalem_out} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Tel_Aviv_out.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Tel_Aviv_out} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Hayfa_out.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Hayfa_out} </Text>
                         <View style={{ width: '100%', height: 1, backgroundColor: 'lightblue' }} />
-                        <Text style={styles.text}> {this.props.shabat.Beer_Sheva_out.slice(0, 5)} </Text>
+                        <Text style={styles.text}> {this.props.shabat.Beer_Sheva_out} </Text>
                     </View>
                 </View>
             </View>
