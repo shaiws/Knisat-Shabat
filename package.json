@@ -16,7 +16,7 @@
     "fast-html-parser": "^1.0.1",
     "npm-check-updates": "^6.0.1",
     "react": "16.13.1",
-    "react-native": "0.62.2",
+    "react-native": "0.63.1",
     "react-native-table-component": "^1.2.1",
     "react-native-update-gradle": "^1.2.0",
     "util": "^0.12.3"
