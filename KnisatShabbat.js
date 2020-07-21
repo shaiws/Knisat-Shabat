@@ -16,12 +16,20 @@ import TableOfShabat from './TableOfShabat';
 import { styles } from './styles';
 import Shabat from './Shabat';
 import HTMLParser from 'fast-html-parser';
+import OneSignal from 'react-native-onesignal'; // Import package from node modules
 
 export default class KnisatShabbat extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [], show: false, date: new Date() };
+
+
+    // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
+    OneSignal.init("30c4dc71-9336-43c2-b9be-b5e4ff8f46e6", { kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption: 2 });
+    OneSignal.inFocusDisplaying(2); // Controls what should happen if a notification is received while the app is open. 2 means that the notification will go directly to the device's notification center.
+
   }
+
   async createShabats(newArray) {
     var newShabats = [];
     for (let index = 1; index < newArray.length; index++) {

@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: "com.onesignal.androidsdk.onesignal-gradle-plugin"
 
 import com.android.build.OutputFile
 
@@ -198,7 +199,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
         transitive = true
     }
@@ -218,7 +218,8 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-apply plugin: 'com.google.gms.google-services'
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); 
+applyNativeModulesAppBuildGradle(project)
 apply plugin: "com.android.application"
+apply plugin: "com.google.gms.google-services"
 apply plugin: "io.fabric"
