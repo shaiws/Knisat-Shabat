@@ -9,7 +9,8 @@ import {
   TouchableNativeFeedback,
   ImageBackground,
   BackHandler,
-  Linking
+  Linking,
+  Pressable
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import TableOfShabat from './TableOfShabat';
@@ -161,7 +162,7 @@ export default class KnisatShabbat extends Component {
             imageStyle={{ opacity: 0.15 }}
             style={{ width: '100%', height: '100%' }}>
             <Text style={styles.title}>זמני כניסת שבתות ומועדים</Text>
-            <TouchableNativeFeedback
+            <Pressable
               onPress={() => {
                 this.setState({ show: true });
               }}>
@@ -199,7 +200,7 @@ export default class KnisatShabbat extends Component {
                   />
                 )}
               </View>
-            </TouchableNativeFeedback>
+            </Pressable>
             <Text style={styles.header}>
               ניתן ללחוץ על פרשה לקבלת מידע לגביה
             </Text>
