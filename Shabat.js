@@ -26,23 +26,23 @@ export default class Shabat {
     Beer_Sheva_out,
   ) {
     this._id = _id;
-    if (parasha.includes('א\' דר"ה')) {
-      this.parasha = "ערב חג: א' דראש השנה";
-    } else if (parasha.includes('ב\' דר"ה')) {
-      this.parasha = "ערב חג: ב' דראש השנה";
-    } else if (parasha.includes('יוהכ"פ')) {
-      this.parasha = 'ערב חג: יום הכיפורים';
+    
+    if (parasha.includes('ראש השנה')) {
+      this.parasha = " חג: ראש השנה";
+    } else if (parasha.includes('יום כיפור')) {
+      this.parasha = 'חג: יום הכיפורים';
     } else if (parasha.includes('שחוהמ"ס	')) {
       this.parasha = 'שבת חוה"מ סוכות';
     } else if (parasha.includes('שחוהמ"פ')) {
       this.parasha = 'שבת חול המועד פסח';
     } else if (
-      parasha.includes("א' דסוכות") ||
-      parasha.includes("א' דפסח") ||
+      parasha.includes("סוכות") ||
+      parasha.includes("שמחת תורה") ||
+      parasha.includes("פסח") ||
       parasha.includes('שביעי של פסח') ||
       parasha.includes('שבועות')
     ) {
-      this.parasha = 'ערב חג: ' + parasha;
+      this.parasha = 'חג: ' + parasha;
     } else {
       this.parasha = 'פרשת ' + parasha;
     }

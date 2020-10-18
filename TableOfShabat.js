@@ -36,16 +36,23 @@ export default class TableOfShabat extends React.Component {
       }
       else if (parseInt(curMonth) % 2 == 0) {
         preDay = '31';
-        if (parseInt(curMonth) - 1 < 10)
-          preMonth = '0' + (parseInt(curMonth) - 1);
-        else
-          preMonth = parseInt(curMonth) - 1;
+        // if (parseInt(curMonth) - 1 < 10)
+        //   preMonth = '0' + (parseInt(curMonth) - 1);
+        // else
+        //   preMonth = parseInt(curMonth) - 1;
         preYear = curYear;
+      }
+      else {
+        preDay = '30';
+        preMonth = `0${curMonth - 1}`;
+        preYear = curYear;
+
       }
     }
     else {
       preDay = (parseInt(curDay) - 1) < 10 ? '0' + (parseInt(curDay) - 1) : (parseInt(curDay) - 1);
-      preMonth = (parseInt(curMonth) - 1) < 10 ? '0' + parseInt(curMonth) : parseInt(curMonth);
+      preMonth = (parseInt(curMonth)) < 10 ? '0' + parseInt(curMonth) : parseInt(curMonth);
+      //  preMonth = parseInt(curMonth);
       preYear = curYear;
     }
     return (`${preDay}/${preMonth}/${preYear}`)

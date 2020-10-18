@@ -60,3 +60,4 @@ buck-out/
 
 /android/app/google-services.json
 google-services.json
+onesignal_key.txt
