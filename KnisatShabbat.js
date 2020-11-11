@@ -25,7 +25,7 @@ export default class KnisatShabbat extends Component {
 
 
     // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
-    OneSignal.init("43beed34-cb51-4035-af0f-ddc5f1149763", { kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption: 2 });
+    OneSignal.init("YOUR_ONESIGNAL_APP_ID", { kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption: 2 });
     OneSignal.inFocusDisplaying(2); // Controls what should happen if a notification is received while the app is open. 2 means that the notification will go directly to the device's notification center.
   }
 
