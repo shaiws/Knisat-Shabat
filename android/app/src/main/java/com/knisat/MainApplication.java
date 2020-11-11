@@ -7,8 +7,10 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import android.view.WindowManager;
+import android.content.res.Configuration;
+import android.util.DisplayMetrics;
 import com.facebook.react.modules.i18nmanager.I18nUtil; //<== AmerllicA config
 
 public class MainApplication extends Application implements ReactApplication {
@@ -23,10 +25,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
-      // Packages that cannot be autolinked yet can be added manually here, for
-      // example:
-      // packages.add(new MyReactNativePackage());
-
       return packages;
     }
 
@@ -44,36 +42,21 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    adjustFontScale(getApplicationContext(), getResources().getConfiguration());
     I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance(); // <== AmerllicA config
     sharedI18nUtilInstance.forceRTL(this, true); // <== AmerllicA config
     sharedI18nUtilInstance.allowRTL(this, true); // <== AmerllicA config
     SoLoader.init(this, /* native exopackage */ false);
-    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
   }
 
-  /**
-   * Loads Flipper in React Native templates.
-   *
-   * @param context
-   */
-  private static void initializeFlipper(Context context) {
-    if (BuildConfig.DEBUG) {
-      try {
-        /*
-         * We use reflection here to pick up the class that initializes Flipper, since
-         * Flipper library is not available in release mode
-         */
-        Class<?> aClass = Class.forName("com.facebook.flipper.ReactNativeFlipper");
-        aClass.getMethod("initializeFlipper", Context.class).invoke(null, context);
-      } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-      } catch (NoSuchMethodException e) {
-        e.printStackTrace();
-      } catch (IllegalAccessException e) {
-        e.printStackTrace();
-      } catch (InvocationTargetException e) {
-        e.printStackTrace();
-      }
+  public void adjustFontScale(Context context, Configuration configuration) {
+    if (configuration.fontScale != 1) {
+      configuration.fontScale = 1;
+      DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+      WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+      wm.getDefaultDisplay().getMetrics(metrics);
+      metrics.scaledDensity = configuration.fontScale * metrics.density;
+      context.getResources().updateConfiguration(configuration, metrics);
     }
   }
 }

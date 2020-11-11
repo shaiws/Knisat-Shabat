@@ -132,8 +132,8 @@ android {
         applicationId "com.knisat"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 16
-        versionName "1.5.0"
+        versionCode 17
+        versionName "1.5.1"
     }
     splits {
         abi {

@@ -18,6 +18,9 @@ import OneSignal from 'react-native-onesignal'; // Import package from node modu
 export default class KnisatShabbat extends Component {
   constructor(props) {
     super(props);
+    Text.defaultProps = Text.defaultProps || {};
+    // Ignore dynamic type scaling on iOS
+    Text.defaultProps.allowFontScaling = false;
     this.state = { data: [], show: false, date: new Date() };
 
 
@@ -136,7 +139,7 @@ export default class KnisatShabbat extends Component {
                     mode="date"
                     onChange={this.pickDate}
                     minimumDate={new Date()}
-                    maximumDate={new Date(2021,8,10)}
+                    maximumDate={new Date(2021, 8, 10)}
                   />
                 )}
               </View>
