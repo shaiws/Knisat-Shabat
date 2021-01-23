@@ -21,7 +21,7 @@ export default class KnisatShabbat extends Component {
     Text.defaultProps = Text.defaultProps || {};
     // Ignore dynamic type scaling on iOS
     Text.defaultProps.allowFontScaling = false;
-    this.state = { data: [], show: false, date: new Date() };
+    this.state = { data: [], show: false, date: new Date(), lastDate: null };
 
 
     // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
@@ -31,11 +31,12 @@ export default class KnisatShabbat extends Component {
 
   async createShabats(newArray) {
     var newShabats = [];
+    this.setState({ lastDate: new Date(newArray[newArray.length - 1].date) })
     let max = newArray.length, min = 0;
     var BreakException = {};
     try {
       newArray.forEach(element => {
-        if (this.state.date.getTime() < new Date(element.date.split('/')[2], element.date.split('/')[1] - 1, element.date.split('/')[0]).getTime()) {
+        if (this.state.date.getTime() < new Date(element.date).getTime() + (6 * 24 * 60 * 60 * 1000)) {
           throw BreakException;// break;
         }
         min++;
@@ -47,22 +48,23 @@ export default class KnisatShabbat extends Component {
     if (min + 10 >= newArray.length)
       max = newArray.length
     else
-      max = min + 10
+      max = min + 11
+
     for (let index = min; index < max; index++) {
       newShabats.push(
         new Shabat(
           index,
           newArray[index].date,
-          newArray[index].hebDate,
+          newArray[index].heb_date,
           newArray[index].parasha,
           newArray[index].Jerusalem_in,
           newArray[index].Jerusalem_out,
-          newArray[index].Tel_Aviv_in,
-          newArray[index].Tel_Aviv_out,
+          newArray[index].TelAviv_in,
+          newArray[index].TelAviv_out,
           newArray[index].Hayfa_in,
           newArray[index].Hayfa_out,
-          newArray[index].Beer_Sheva_in,
-          newArray[index].Beer_Sheva_out
+          newArray[index].BeerSheva_in,
+          newArray[index].BeerSheva_out
         ),
       );
     }
@@ -72,10 +74,11 @@ export default class KnisatShabbat extends Component {
     await this.getData();
   }
   async getData() {
-    let db = require('./db.json')
-    this.createShabats(db).then(newShabats => {
-      this.setState({ data: newShabats });
-    })
+
+    fetch('https://data.gov.il/api/3/action/datastore_search?resource_id=cfe1dd76-a7f8-453a-aa42-88e5db30d567&limit=1095')
+      .then(response => response.json())
+      .then(data => this.createShabats(data.result.records))
+      .then(newShabats => this.setState({ data: newShabats }));
   }
 
   pickDate = (event, date) => {
@@ -139,7 +142,7 @@ export default class KnisatShabbat extends Component {
                     mode="date"
                     onChange={this.pickDate}
                     minimumDate={new Date()}
-                    maximumDate={new Date(2021, 8, 10)}
+                    maximumDate={this.state.lastDate}
                   />
                 )}
               </View>

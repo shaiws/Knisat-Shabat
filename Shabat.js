@@ -26,7 +26,7 @@ export default class Shabat {
     Beer_Sheva_out,
   ) {
     this._id = _id;
-    
+
     if (parasha.includes('ראש השנה')) {
       this.parasha = " חג: ראש השנה";
     } else if (parasha.includes('יום כיפור')) {
@@ -48,14 +48,24 @@ export default class Shabat {
     }
 
     this.hebDate = hebDate;
-    this.date = date;
-    this.Jerusalem_in = JSON.stringify(Jerusalem_in).includes('\\r') ? '' : Jerusalem_in;
-    this.Jerusalem_out = JSON.stringify(Jerusalem_out).includes('\\r') ? '' : Jerusalem_out;
-    this.Tel_Aviv_in = JSON.stringify(Tel_Aviv_in).includes('\\r') ? '' : Tel_Aviv_in;
-    this.Tel_Aviv_out = JSON.stringify(Tel_Aviv_out).includes('\\r') ? '' : Tel_Aviv_out;
-    this.Hayfa_in = JSON.stringify(Hayfa_in).includes('\\r') ? '' : Hayfa_in;
-    this.Hayfa_out = JSON.stringify(Hayfa_out).includes('\\r') ? '' : Hayfa_out;
-    this.Beer_Sheva_in = JSON.stringify(Beer_Sheva_in).includes('\\r') ? '' : Beer_Sheva_in;
-    this.Beer_Sheva_out = JSON.stringify(Beer_Sheva_out).includes('\\r') ? '' : Beer_Sheva_out;
+    this.date = new Date(date);
+    let month = String(this.date .getMonth() + 1);
+    let day = String(this.date .getDate());
+    const year = String(this.date .getFullYear());
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    this.date = `${day}/${month}/${year}`;
+
+    console.log(this.date);
+    this.Jerusalem_in = Jerusalem_in.slice(0, 5);;
+    this.Jerusalem_out = Jerusalem_out.slice(0, 5);;
+    this.Tel_Aviv_in = Tel_Aviv_in.slice(0, 5);;
+    this.Tel_Aviv_out = Tel_Aviv_out.slice(0, 5);;
+    this.Hayfa_in = Hayfa_in.slice(0, 5);
+    this.Hayfa_out = Hayfa_out.slice(0, 5);;
+    this.Beer_Sheva_in = Beer_Sheva_in.slice(0, 5);;
+    this.Beer_Sheva_out = Beer_Sheva_out.slice(0, 5);;
   }
 }
