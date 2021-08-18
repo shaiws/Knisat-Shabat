@@ -7,7 +7,8 @@ import {
   StatusBar,
   ImageBackground,
   Linking,
-  Pressable
+  Pressable,
+  SafeAreaView
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import TableOfShabat from './TableOfShabat';
@@ -87,14 +88,8 @@ export default class KnisatShabbat extends Component {
   render() {
     if (this.state.data.length > 0) {
       return (
-        <View style={styles.container}>
-          <StatusBar
-            translucent={false}
-            hidden={false}
-            animated={true}
-            barStyle="light-content"
-            backgroundColor="#123"
-          />
+        <SafeAreaView style={styles.container}>
+         
           <ImageBackground
             source={{
               uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
@@ -161,7 +156,7 @@ export default class KnisatShabbat extends Component {
             </ScrollView>
             <Text onPress={() => Linking.openURL('http://old.dat.gov.il/Pages/ShabathTimes.aspx')} style={styles.copyrights}>© כלל המידע נלקח מהאתר הממשלתי של המשרד לשירותי דת ©</Text>
           </ImageBackground>
-        </View>
+        </SafeAreaView>
       );
     } else {
       return (
