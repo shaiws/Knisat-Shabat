@@ -58,7 +58,7 @@ export default class Shabat {
 
     this.date = `${day}/${month}/${year}`;
 
-    console.log(this.date);
+    
     this.Jerusalem_in = Jerusalem_in.slice(0, 5);;
     this.Jerusalem_out = Jerusalem_out.slice(0, 5);;
     this.Tel_Aviv_in = Tel_Aviv_in.slice(0, 5);;

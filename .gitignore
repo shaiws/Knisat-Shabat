@@ -57,10 +57,5 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-
-/android/app/google-services.json
-google-services.json
-onesignal_key.txt
-android/app/.project
-android/.project
-.gitignore
+android/app/google-services.json
+index.js

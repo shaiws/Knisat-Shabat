@@ -2,23 +2,19 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
-        compileSdkVersion = 28
-        targetSdkVersion = 29
+        buildToolsVersion = "30.0.2"
+        minSdkVersion = 21
+        compileSdkVersion = 30
+        targetSdkVersion = 30
+        ndkVersion = "20.1.5948944"
     }
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/'} // Gradle Plugin Portal 
-        jcenter()
         google()
-        maven {url 'https://maven.fabric.io/public'}
+        mavenCentral()
     }
     dependencies {
-        classpath("com.google.gms:google-services:4.2.0")
-        classpath ("gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.6, 0.99.99]")
-        classpath("com.android.tools.build:gradle:4.1.0")
-        classpath ("io.fabric.tools:gradle:1.28.1")
-
+        classpath("com.android.tools.build:gradle:4.2.1")
+        classpath 'com.google.gms:google-services:4.3.10'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -26,6 +22,7 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
@@ -37,7 +34,6 @@ allprojects {
         }
 
         google()
-        jcenter()
-        maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
     }
 }

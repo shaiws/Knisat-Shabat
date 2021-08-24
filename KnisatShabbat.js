@@ -13,7 +13,6 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import TableOfShabat from './TableOfShabat';
 import { styles } from './styles';
 import Shabat from './Shabat';
-import OneSignal from 'react-native-onesignal'; // Import package from node modules
 
 export default class KnisatShabbat extends Component {
   constructor(props) {
@@ -22,24 +21,19 @@ export default class KnisatShabbat extends Component {
     // Ignore dynamic type scaling on iOS
     Text.defaultProps.allowFontScaling = false;
     this.state = { data: [], show: false, date: new Date(), lastDate: null };
-
-
-    // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
-    OneSignal.init("YOUR_ONESIGNAL_APP_ID", { kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false, kOSSettingsKeyInFocusDisplayOption: 2 });
-    OneSignal.inFocusDisplaying(2); // Controls what should happen if a notification is received while the app is open. 2 means that the notification will go directly to the device's notification center.
   }
 
   async createShabats(newArray) {
+    newArray.sort((a, b) => parseInt(a["_id"]) - parseInt(b["_id"]));
     var newShabats = [];
     this.setState({ lastDate: new Date(newArray[newArray.length - 1].date) })
     let max = newArray.length, min = 0;
     var BreakException = {};
     try {
       newArray.forEach(element => {
-        if (this.state.date.getTime() < new Date(element.date).getTime() + (6 * 24 * 60 * 60 * 1000)) {
-          throw BreakException;// break;
+        if (this.state.date.getTime() > new Date(element.date).getTime()+(1*24*60*60*1000)) {
+          min++;
         }
-        min++;
       });
     }
     catch (e) {
