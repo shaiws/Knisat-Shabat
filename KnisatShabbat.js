@@ -131,19 +131,21 @@ export default class KnisatShabbat extends Component {
                   value={this.state.date}
                   mode="date"
                   locale="he-IL"
-                  onChange={this.pickDate}
+                  onChange={Platform.OS === 'ios' ? this.pickDate : () => { this.pickDate; this.setState({ show: false }) }}
                   minimumDate={new Date()}
                   maximumDate={this.state.lastDate}
                   display={Platform.OS === 'ios' ? "spinner" : "default"}
                   style={{ width: '100%', backgroundColor: "white", alignSelf: 'center' }}
                 />
-                <Pressable
+                {Platform.OS === 'ios' && <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => this.setState({ show: false })}>
                   <Text style={styles.textStyle}>אישור</Text>
-                </Pressable>
+                </Pressable>}
               </View>
-            )}
+
+            )
+            }
             <Text style={styles.header}>
               ניתן ללחוץ על פרשה לקבלת מידע לגביה
             </Text>
