@@ -17,6 +17,8 @@
 		D892D63578F8470AA382F8E1 /* ShmulikCLM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58AE36CA003A43A88877ACAC /* ShmulikCLM.ttf */; };
 		F6791A1D26D58FB300F6DFB1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = F6791A1C26D58FB300F6DFB1 /* main.jsbundle */; };
 		F6791A1F26D58FB300F6DFB1 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = F6791A1E26D58FB300F6DFB1 /* assets */; };
+		F6791A2426D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */; };
+		F6791A2526D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F6791A1C26D58FB300F6DFB1 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		F6791A1E26D58FB300F6DFB1 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "KnisatShabbat/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */,
 				F6791A1E26D58FB300F6DFB1 /* assets */,
 				F6791A1C26D58FB300F6DFB1 /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* KnisatShabbat */,
@@ -252,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6791A2526D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */,
 				F6791A1F26D58FB300F6DFB1 /* assets in Resources */,
 				F6791A1D26D58FB300F6DFB1 /* main.jsbundle in Resources */,
 			);
@@ -263,6 +268,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F6791A2426D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */,
 				D892D63578F8470AA382F8E1 /* ShmulikCLM.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,7 +524,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shaiws.knisat;
 				PRODUCT_NAME = KnisatShabbat;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -544,7 +550,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shaiws.knisat;
 				PRODUCT_NAME = KnisatShabbat;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -4,11 +4,11 @@ import {
   ScrollView,
   Text,
   View,
-  StatusBar,
   ImageBackground,
   Linking,
   Pressable,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import TableOfShabat from './TableOfShabat';
@@ -32,7 +32,7 @@ export default class KnisatShabbat extends Component {
     var BreakException = {};
     try {
       newArray.forEach(element => {
-        if (this.state.date.getTime() > new Date(element.date).getTime()+(1*24*60*60*1000)) {
+        if (this.state.date.getTime() > new Date(element.date).getTime() + (1 * 24 * 60 * 60 * 1000)) {
           min++;
         }
       });
@@ -79,8 +79,7 @@ export default class KnisatShabbat extends Component {
   pickDate = (event, date) => {
     event.type === 'dismissed' ? (date = new Date()) : (date = date);
     this.setState({
-      show: false,
-      date,
+      date: date,
     });
     this.getData();
   };
@@ -89,7 +88,6 @@ export default class KnisatShabbat extends Component {
     if (this.state.data.length > 0) {
       return (
         <SafeAreaView style={styles.container}>
-         
           <ImageBackground
             source={{
               uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
@@ -125,17 +123,27 @@ export default class KnisatShabbat extends Component {
                     '/' +
                     this.state.date.getFullYear()}
                 </Text>
-                {this.state.show && (
-                  <DateTimePicker
-                    value={this.state.date}
-                    mode="date"
-                    onChange={this.pickDate}
-                    minimumDate={new Date()}
-                    maximumDate={this.state.lastDate}
-                  />
-                )}
               </View>
             </Pressable>
+            {this.state.show && (
+              <View style={{ flex: 1 }}>
+                <DateTimePicker
+                  value={this.state.date}
+                  mode="date"
+                  locale="he-IL"
+                  onChange={this.pickDate}
+                  minimumDate={new Date()}
+                  maximumDate={this.state.lastDate}
+                  display={Platform.OS === 'ios' ? "spinner" : "default"}
+                  style={{ width: '100%', backgroundColor: "white", alignSelf: 'center' }}
+                />
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => this.setState({ show: false })}>
+                  <Text style={styles.textStyle}>אישור</Text>
+                </Pressable>
+              </View>
+            )}
             <Text style={styles.header}>
               ניתן ללחוץ על פרשה לקבלת מידע לגביה
             </Text>

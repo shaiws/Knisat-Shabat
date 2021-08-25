@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
     justifyContent: 'space-between',
   },
   title: {
@@ -58,7 +57,44 @@ export const styles = StyleSheet.create({
     fontFamily: 'ShmulikCLM',
 
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  modalView: {
+    flex: 1,
+    margin: 50,
+    backgroundColor: "white",
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
+  },
+  textStyle: {
+    color: "black",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  button: {
+    borderRadius: 80,
+    padding: 10,
+    width: '20%',
+    elevation: 2,
+    shadowColor: "gray",
+  },
+  buttonOpen: {
+    backgroundColor: "white",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignSelf: 'center',
+    margin: 5
 
+  },
   city: {
     fontFamily: 'ShmulikCLM',
     flex: 1,
@@ -132,6 +168,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: 'black',
   }
-
-});
+}
+);
 
