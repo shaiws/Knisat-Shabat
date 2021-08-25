@@ -93,7 +93,7 @@ export default class KnisatShabbat extends Component {
               uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
             }}
             imageStyle={{ opacity: 0.15 }}
-            style={{ width: '100%', height: '100%' }}>
+            style={{ width: '100%', height: '100%' ,backgroundColor:'white'}}>
             <Text style={styles.title}>זמני כניסת שבתות ומועדים</Text>
             <Pressable
               onPress={() => {
@@ -175,7 +175,7 @@ export default class KnisatShabbat extends Component {
             uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
           }}
           imageStyle={{ opacity: 0.15 }}
-          style={{ justifyContent: 'center', width: '100%', height: '100%' }}>
+          style={{ justifyContent: 'center', width: '100%', height: '100%', backgroundColor:'white' }}>
           <Text
             style={{
               fontFamily: 'ShmulikCLM',

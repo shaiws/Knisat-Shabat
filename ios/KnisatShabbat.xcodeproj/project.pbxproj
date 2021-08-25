@@ -17,8 +17,6 @@
 		D892D63578F8470AA382F8E1 /* ShmulikCLM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58AE36CA003A43A88877ACAC /* ShmulikCLM.ttf */; };
 		F6791A1D26D58FB300F6DFB1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = F6791A1C26D58FB300F6DFB1 /* main.jsbundle */; };
 		F6791A1F26D58FB300F6DFB1 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = F6791A1E26D58FB300F6DFB1 /* assets */; };
-		F6791A2426D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */; };
-		F6791A2526D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +29,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F61A410126D678D2003988E3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* KnisatShabbatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnisatShabbatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,17 +53,20 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KnisatShabbat/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KnisatShabbat/main.m; sourceTree = "<group>"; };
 		16EB19FED40C4D7898154D74 /* libPods-KnisatShabbat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnisatShabbat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		406F6D2536CADA622BF3A3C2 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB3C6F10D766B98043895AE /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		58AE36CA003A43A88877ACAC /* ShmulikCLM.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ShmulikCLM.ttf; path = ../assets/fonts/ShmulikCLM.ttf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KnisatShabbat/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D80114120B521779BE1A899 /* Pods-KnisatShabbat-KnisatShabbatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnisatShabbat-KnisatShabbatTests.debug.xcconfig"; path = "Target Support Files/Pods-KnisatShabbat-KnisatShabbatTests/Pods-KnisatShabbat-KnisatShabbatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A271819DA31D0DABFA4AE00C /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		A6F9F9AE516A940C1C2422CA /* Pods-KnisatShabbat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnisatShabbat.release.xcconfig"; path = "Target Support Files/Pods-KnisatShabbat/Pods-KnisatShabbat.release.xcconfig"; sourceTree = "<group>"; };
 		C6C470758FD76FCA26ACA9AE /* Pods-KnisatShabbat-KnisatShabbatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnisatShabbat-KnisatShabbatTests.release.xcconfig"; path = "Target Support Files/Pods-KnisatShabbat-KnisatShabbatTests/Pods-KnisatShabbat-KnisatShabbatTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6CF56075656DD2BA1B312B1 /* Pods-KnisatShabbat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnisatShabbat.debug.xcconfig"; path = "Target Support Files/Pods-KnisatShabbat/Pods-KnisatShabbat.debug.xcconfig"; sourceTree = "<group>"; };
 		DBA9F121D1A22F20D9E50DEF /* libPods-KnisatShabbat-KnisatShabbatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnisatShabbat-KnisatShabbatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F61A40F126D6784C003988E3 /* KnisatShabbat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = KnisatShabbat.entitlements; path = KnisatShabbat/KnisatShabbat.entitlements; sourceTree = "<group>"; };
 		F6791A1C26D58FB300F6DFB1 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		F6791A1E26D58FB300F6DFB1 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "KnisatShabbat/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +109,7 @@
 		13B07FAE1A68108700A75B9A /* KnisatShabbat */ = {
 			isa = PBXGroup;
 			children = (
+				F61A40F126D6784C003988E3 /* KnisatShabbat.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -119,6 +134,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				16EB19FED40C4D7898154D74 /* libPods-KnisatShabbat.a */,
 				DBA9F121D1A22F20D9E50DEF /* libPods-KnisatShabbat-KnisatShabbatTests.a */,
+				406F6D2536CADA622BF3A3C2 /* libPods-OneSignalNotificationServiceExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,7 +149,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				F6791A2326D58FB300F6DFB1 /* GoogleService-Info.plist */,
 				F6791A1E26D58FB300F6DFB1 /* assets */,
 				F6791A1C26D58FB300F6DFB1 /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* KnisatShabbat */,
@@ -165,6 +180,8 @@
 				A6F9F9AE516A940C1C2422CA /* Pods-KnisatShabbat.release.xcconfig */,
 				8D80114120B521779BE1A899 /* Pods-KnisatShabbat-KnisatShabbatTests.debug.xcconfig */,
 				C6C470758FD76FCA26ACA9AE /* Pods-KnisatShabbat-KnisatShabbatTests.release.xcconfig */,
+				4CB3C6F10D766B98043895AE /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				A271819DA31D0DABFA4AE00C /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -205,6 +222,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				74A746D175483FD46595D0B7 /* [CP] Embed Pods Frameworks */,
 				562DDCD21E3D1D6344E443B4 /* [CP] Copy Pods Resources */,
+				F61A410126D678D2003988E3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -221,6 +239,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -256,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6791A2526D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */,
 				F6791A1F26D58FB300F6DFB1 /* assets in Resources */,
 				F6791A1D26D58FB300F6DFB1 /* main.jsbundle in Resources */,
 			);
@@ -268,7 +286,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				F6791A2426D58FB300F6DFB1 /* GoogleService-Info.plist in Resources */,
 				D892D63578F8470AA382F8E1 /* ShmulikCLM.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = KnisatShabbat/KnisatShabbat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YW3NW288F8;
 				ENABLE_BITCODE = NO;
@@ -538,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = KnisatShabbat/KnisatShabbat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YW3NW288F8;
 				INFOPLIST_FILE = KnisatShabbat/Info.plist;
