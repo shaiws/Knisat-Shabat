@@ -1,0 +1,23 @@
+                        -H/home/shai/Projects/Knisat-Shabat/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=24
+-DANDROID_PLATFORM=android-24
+-DANDROID_ABI=x86
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DANDROID_NDK=/home/shai/android-sdk/ndk/26.1.10909125
+-DCMAKE_ANDROID_NDK=/home/shai/android-sdk/ndk/26.1.10909125
+-DCMAKE_TOOLCHAIN_FILE=/home/shai/android-sdk/ndk/26.1.10909125/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/shai/Projects/Knisat-Shabat/android/app/build/intermediates/cxx/RelWithDebInfo/6f105z24/obj/x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/shai/Projects/Knisat-Shabat/android/app/build/intermediates/cxx/RelWithDebInfo/6f105z24/obj/x86
+-DCMAKE_BUILD_TYPE=RelWithDebInfo
+-DCMAKE_FIND_ROOT_PATH=/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/prefab/x86/prefab
+-B/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/x86
+-GNinja
+-DPROJECT_BUILD_DIR=/home/shai/Projects/Knisat-Shabat/android/app/build
+-DREACT_ANDROID_DIR=/home/shai/Projects/Knisat-Shabat/node_modules/react-native/ReactAndroid
+-DANDROID_STL=c++_shared
+-DANDROID_USE_LEGACY_TOOLCHAIN_FILE=ON
+                        Build command args: []
+                        Version: 2

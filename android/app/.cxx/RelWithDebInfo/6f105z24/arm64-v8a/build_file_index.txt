@@ -1,0 +1,2 @@
+/home/shai/Projects/Knisat-Shabat/node_modules/@react-native-community/datetimepicker/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/shai/Projects/Knisat-Shabat/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt

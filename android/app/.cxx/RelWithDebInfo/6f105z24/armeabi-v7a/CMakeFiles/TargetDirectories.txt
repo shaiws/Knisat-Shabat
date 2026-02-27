@@ -1,0 +1,6 @@
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/CMakeFiles/appmodules.dir
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/RNDateTimePickerCGen_autolinked_build/CMakeFiles/edit_cache.dir
+/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a/RNDateTimePickerCGen_autolinked_build/CMakeFiles/rebuild_cache.dir

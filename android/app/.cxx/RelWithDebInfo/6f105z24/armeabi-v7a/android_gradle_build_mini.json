@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "/home/shai/Projects/Knisat-Shabat/node_modules/@react-native-community/datetimepicker/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/home/shai/Projects/Knisat-Shabat/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/usr/bin/ninja",
+      "-C",
+      "/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/usr/bin/ninja",
+    "-C",
+    "/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "react_codegen_RNDateTimePickerCGen::@59b70ddc31ba2f8ef1d2": {
+      "artifactName": "react_codegen_RNDateTimePickerCGen",
+      "abi": "armeabi-v7a",
+      "runtimeFiles": []
+    },
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "artifactName": "appmodules",
+      "abi": "armeabi-v7a",
+      "output": "/home/shai/Projects/Knisat-Shabat/android/app/build/intermediates/cxx/RelWithDebInfo/6f105z24/obj/armeabi-v7a/libappmodules.so",
+      "runtimeFiles": [
+        "/home/shai/.gradle/caches/8.10.2/transforms/ecaf85af74491e145fd7c1a1474ff70a/transformed/fbjni-0.6.0/prefab/modules/fbjni/libs/android.armeabi-v7a/libfbjni.so",
+        "/home/shai/.gradle/caches/8.10.2/transforms/e4bfea7c5d2f3d78c7e76bf8727e3c94/transformed/react-android-0.76.7-release/prefab/modules/jsi/libs/android.armeabi-v7a/libjsi.so",
+        "/home/shai/.gradle/caches/8.10.2/transforms/e4bfea7c5d2f3d78c7e76bf8727e3c94/transformed/react-android-0.76.7-release/prefab/modules/reactnative/libs/android.armeabi-v7a/libreactnative.so"
+      ]
+    }
+  }
+}

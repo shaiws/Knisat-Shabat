@@ -1,0 +1,1 @@
+/home/shai/Projects/Knisat-Shabat/android/app/build/intermediates/cxx/RelWithDebInfo/6f105z24/obj/x86

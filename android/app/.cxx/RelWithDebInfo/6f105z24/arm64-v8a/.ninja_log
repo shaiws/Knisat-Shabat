@@ -1,0 +1,12 @@
+# ninja log v5
+0	8	0	/home/shai/Projects/Knisat-Shabat/android/app/.cxx/RelWithDebInfo/6f105z24/arm64-v8a/CMakeFiles/cmake.verify_globs	26ff2962ea51e155
+5	3933	1772183275475670417	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/States.cpp.o	7aab5dcf56639a28
+0	4624	1772183276172676818	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/EventEmitters.cpp.o	4f2e4bc9725a1a5c
+3	5183	1772183276716681813	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/ShadowNodes.cpp.o	47408ccb34ecbd1a
+0	5325	1772183276874683264	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/ComponentDescriptors.cpp.o	8952a4675bc0f719
+0	5397	1772183276945683916	CMakeFiles/appmodules.dir/home/shai/Projects/Knisat-Shabat/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	de6680f481d29a8a
+2	5745	1772183277303687203	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/RNDateTimePickerCGenJSI-generated.cpp.o	586fdffce980464c
+0	6104	1772183277654690426	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/RNDateTimePickerCGen-generated.cpp.o	f063c33cae1e2108
+0	6541	1772183278088694411	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c40f29ee7157c36b
+1	8564	1772183280114713013	RNDateTimePickerCGen_autolinked_build/CMakeFiles/react_codegen_RNDateTimePickerCGen.dir/react/renderer/components/RNDateTimePickerCGen/Props.cpp.o	1ed9c9527e535299
+8564	8609	1772183280178713601	/home/shai/Projects/Knisat-Shabat/android/app/build/intermediates/cxx/RelWithDebInfo/6f105z24/obj/arm64-v8a/libappmodules.so	d677512fc76f1300
