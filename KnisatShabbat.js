@@ -1,202 +1,167 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
 import {
-  ScrollView,
-  Text,
-  View,
-  ImageBackground,
-  Linking,
-  Pressable,
-  SafeAreaView,
-  Platform
+  ScrollView, Text, View, Linking,
+  Pressable, SafeAreaView, Platform,
+  StatusBar, ActivityIndicator,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import TableOfShabat from './TableOfShabat';
-import { styles } from './styles';
+import { styles, COLORS } from './styles';
 import Shabat from './Shabat';
 
 export default class KnisatShabbat extends Component {
   constructor(props) {
     super(props);
     Text.defaultProps = Text.defaultProps || {};
-    // Ignore dynamic type scaling on iOS
     Text.defaultProps.allowFontScaling = false;
-    this.state = { data: [], show: false, date: new Date(), lastDate: null };
+    this.state = {
+      data: [],
+      show: false,
+      date: new Date(),
+      lastDate: null,
+      loading: true,
+    };
   }
 
-  async createShabats(newArray) {
-    newArray.sort((a, b) => parseInt(a["_id"]) - parseInt(b["_id"]));
-    var newShabats = [];
-    this.setState({ lastDate: new Date(newArray[newArray.length - 1].date) })
-    let max = newArray.length, min = 0;
-    var BreakException = {};
-    try {
-      newArray.forEach(element => {
-        if (this.state.date.getTime() > new Date(element.date).getTime() + (1 * 24 * 60 * 60 * 1000)) {
-          min++;
-        }
-      });
-    }
-    catch (e) {
-      if (e !== BreakException) throw e;
-    }
-    if (min + 10 >= newArray.length)
-      max = newArray.length
-    else
-      max = min + 11
-
-    for (let index = min; index < max; index++) {
-      newShabats.push(
-        new Shabat(
-          index,
-          newArray[index].date,
-          newArray[index].heb_date,
-          newArray[index].parasha,
-          newArray[index].Jerusalem_in,
-          newArray[index].Jerusalem_out,
-          newArray[index].TelAviv_in,
-          newArray[index].TelAviv_out,
-          newArray[index].Hayfa_in,
-          newArray[index].Hayfa_out,
-          newArray[index].BeerSheva_in,
-          newArray[index].BeerSheva_out
-        ),
-      );
-    }
-    return newShabats;
-  }
   async componentDidMount() {
     await this.getData();
   }
-  async getData() {
 
-    fetch('https://data.gov.il/api/3/action/datastore_search?resource_id=cfe1dd76-a7f8-453a-aa42-88e5db30d567&limit=1095')
-      .then(response => response.json())
-      .then(data => this.createShabats(data.result.records))
-      .then(newShabats => this.setState({ data: newShabats }));
+  async getData() {
+    this.setState({ loading: true });
+    try {
+      const res = await fetch(
+        'https://data.gov.il/api/3/action/datastore_search?resource_id=cfe1dd76-a7f8-453a-aa42-88e5db30d567&limit=1095'
+      );
+      const json = await res.json();
+      const shabats = await this.createShabats(json.result.records);
+      this.setState({ data: shabats, loading: false });
+    } catch (e) {
+      this.setState({ loading: false });
+    }
+  }
+
+  async createShabats(records) {
+    records.sort((a, b) => parseInt(a._id) - parseInt(b._id));
+    this.setState({ lastDate: new Date(records[records.length - 1].date) });
+
+    const now = this.state.date.getTime();
+    let min = 0;
+    for (const el of records) {
+      if (now > new Date(el.date).getTime() + 86400000) min++;
+      else break;
+    }
+    const max = min + 10 >= records.length ? records.length : min + 11;
+
+    return records.slice(min, max).map((el, i) =>
+      new Shabat(
+        min + i,
+        el.date, el.heb_date, el.parasha,
+        el.Jerusalem_in,  el.Jerusalem_out,
+        el.TelAviv_in,    el.TelAviv_out,
+        el.Hayfa_in,      el.Hayfa_out,
+        el.BeerSheva_in,  el.BeerSheva_out,
+      )
+    );
   }
 
   pickDate = (event, date) => {
-    event.type === 'dismissed' ? (date = new Date()) : (date = date);
-    this.setState({
-      date: date,
+    if (event.type === 'dismissed' || !date) {
+      if (Platform.OS === 'android') this.setState({ show: false });
+      return;
+    }
+    this.setState({ date, show: Platform.OS === 'ios' }, () => {
+      if (Platform.OS === 'android') {
+        this.setState({ show: false });
+        this.getData();
+      }
     });
+  };
+
+  confirmDate = () => {
+    this.setState({ show: false });
     this.getData();
   };
 
-  render() {
-    if (this.state.data.length > 0) {
-      return (
-        <SafeAreaView style={styles.container}>
-          <ImageBackground
-            source={{
-              uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
-            }}
-            imageStyle={{ opacity: 0.15 }}
-            style={{ width: '100%', height: '100%' ,backgroundColor:'white'}}>
-            <Text style={styles.title}>זמני כניסת שבתות ומועדים</Text>
-            <Pressable
-              onPress={() => {
-                this.setState({ show: true });
-              }}>
-              <View
-                style={{
-                  paddingTop: 5,
-                  justifyContent: 'center',
-                  flexDirection: 'row',
-                  paddingBottom: 10,
-                }}>
-                <Text
-                  style={{
-                    color: 'black',
-                    fontWeight: 'normal',
-                    fontFamily: 'ShmulikCLM',
-                  }}>
-                  בחר תאריך:{' '}
-                  {(this.state.date.getDate() < 10
-                    ? '0' + this.state.date.getDate()
-                    : this.state.date.getDate()) +
-                    '/' +
-                    (this.state.date.getMonth() + 1 < 10
-                      ? '0' + (this.state.date.getMonth() + 1)
-                      : this.state.date.getMonth() + 1) +
-                    '/' +
-                    this.state.date.getFullYear()}
-                </Text>
-              </View>
-            </Pressable>
-            {this.state.show && (
-              <View style={{ flex: 1 }}>
-                <DateTimePicker
-                  value={this.state.date}
-                  mode="date"
-                  locale="he-IL"
-                  onChange={Platform.OS === 'ios' ? this.pickDate : () => { this.pickDate; this.setState({ show: false }) }}
-                  minimumDate={new Date()}
-                  maximumDate={this.state.lastDate}
-                  display={Platform.OS === 'ios' ? "spinner" : "default"}
-                  style={{ width: '100%', backgroundColor: "white", alignSelf: 'center' }}
-                />
-                {Platform.OS === 'ios' && <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => this.setState({ show: false })}>
-                  <Text style={styles.textStyle}>אישור</Text>
-                </Pressable>}
-              </View>
+  formatDate(d) {
+    const day   = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    return `${day}/${month}/${d.getFullYear()}`;
+  }
 
-            )
-            }
-            <Text style={styles.header}>
-              ניתן ללחוץ על פרשה לקבלת מידע לגביה
-            </Text>
-            <ScrollView
-              indicatorStyle="black"
-              showsVerticalScrollIndicator={false}
-              style={{ flex: 1 }}>
-              {this.state.data.map(shabat => {
-                const dateOfShabat = new Date(shabat.date);
-                return (
-                  <View key={shabat._id}>
-                    <View style={{ flex: 1 }}>
-                      <TableOfShabat shabat={shabat} date={dateOfShabat} />
-                    </View>
-                  </View>
-                );
-              })}
-            </ScrollView>
-            <Text onPress={() => Linking.openURL('http://old.dat.gov.il/Pages/ShabathTimes.aspx')} style={styles.copyrights}>© כלל המידע נלקח מהאתר הממשלתי של המשרד לשירותי דת ©</Text>
-          </ImageBackground>
-        </SafeAreaView>
-      );
-    } else {
+  render() {
+    const { data, show, date, lastDate, loading } = this.state;
+
+    if (loading) {
       return (
-        <ImageBackground
-          source={{
-            uri: 'https://www.jewishmag.com/90mag/shabbatpoem/title.gif',
-          }}
-          imageStyle={{ opacity: 0.15 }}
-          style={{ justifyContent: 'center', width: '100%', height: '100%', backgroundColor:'white' }}>
-          <Text
-            style={{
-              fontFamily: 'ShmulikCLM',
-              color: 'black',
-              fontSize: 29,
-              alignSelf: 'center',
-            }}>
-            הנתונים נטענים...
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'ShmulikCLM',
-              color: 'black',
-              fontSize: 29,
-              alignSelf: 'center',
-              textDecorationLine: 'none',
-            }}>
-            שבת שלום!
-          </Text>
-        </ImageBackground>
+        <View style={styles.loadingContainer}>
+          <StatusBar barStyle="light-content" backgroundColor={COLORS.headerBg} />
+          <Text style={styles.loadingEmoji}>🕍</Text>
+          <ActivityIndicator size="large" color={COLORS.accent} style={{ marginBottom: 16 }} />
+          <Text style={styles.loadingText}>הנתונים נטענים...</Text>
+          <Text style={styles.loadingSubText}>שבת שלום!</Text>
+        </View>
       );
     }
+
+    return (
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor={COLORS.headerBg} />
+
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.headerIcon}>🕯</Text>
+          <Text style={styles.headerTitle}>זמני כניסת שבתות ומועדים</Text>
+          <Text style={styles.headerSubtitle}>לחץ על פרשה לקבלת מידע בויקיפדיה</Text>
+        </View>
+
+        {/* Date picker pill */}
+        <Pressable onPress={() => this.setState({ show: true })} style={styles.datePill}>
+          <Text style={styles.datePillText}>📅 בחר תאריך: {this.formatDate(date)}</Text>
+        </Pressable>
+
+        {/* Date picker */}
+        {show && (
+          <View style={styles.datePickerWrapper}>
+            <DateTimePicker
+              value={date}
+              mode="date"
+              locale="he-IL"
+              onChange={this.pickDate}
+              minimumDate={new Date()}
+              maximumDate={lastDate || undefined}
+              display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+              style={{ width: '100%', backgroundColor: COLORS.card }}
+              themeVariant="dark"
+            />
+            {Platform.OS === 'ios' && (
+              <Pressable style={styles.confirmButton} onPress={this.confirmDate}>
+                <Text style={styles.confirmButtonText}>אישור</Text>
+              </Pressable>
+            )}
+          </View>
+        )}
+
+        {/* List */}
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingTop: 12, paddingBottom: 20 }}
+        >
+          {data.map(shabat => (
+            <TableOfShabat key={shabat._id} shabat={shabat} />
+          ))}
+        </ScrollView>
+
+        {/* Footer */}
+        <View style={styles.footer}>
+          <Text
+            onPress={() => Linking.openURL('http://old.dat.gov.il/Pages/ShabathTimes.aspx')}
+            style={styles.copyrights}>
+            © המידע נלקח מהאתר הממשלתי של המשרד לשירותי דת ©
+          </Text>
+        </View>
+
+      </SafeAreaView>
+    );
   }
 }
